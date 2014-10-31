@@ -16,6 +16,4 @@ ALittleTwitterApp.Collections.Tweets = Backbone.Collection.extend({
     return response;
   },
 
-
-
 });
