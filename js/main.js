@@ -21,4 +21,10 @@ window.ALittleTwitterApp = {
 	}
 };
 
-$(document).ready(ALittleTwitterApp.init);
+$(function() {
+	ALittleTwitterApp.init();
+	
+  $(".tweetwidget").each(function(index, tweetWidgetDiv) {
+    var tweetWidget = new ALittleTwitterApp.Views.TweetWidget({ el: tweetWidgetDiv });
+  });
+});
