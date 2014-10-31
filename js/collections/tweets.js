@@ -1,8 +1,21 @@
 ALittleTwitterApp.Collections.Tweets = Backbone.Collection.extend({
+  
   model: ALittleTwitterApp.Models.Tweet,
-  url: 'twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?screen_name=AppDirect&count=30'),
+
+  initialize: function(models, options) {
+		this.set(models);
+		this.twitter_screen_name = options.twitter_screen_name || "AppDirect";
+  },
+
+  url: function() {
+		return 'twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?count=30&screen_name='+this.twitter_screen_name);
+  },
+  
   parse: function(response) {
-    console.log('parsing tweets...');
+    console.log('parsing tweets for: '+this.twitter_screen_name);
     return response;
-  }
+  },
+
+
+
 });
