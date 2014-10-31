@@ -1,6 +1,6 @@
 ALittleTwitterApp.Views.Tweet = Backbone.View.extend({
 	tagName: 'li',
-	template: _.template('<img src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded"> <a href="https://twitter.com/<%= user.screen_name %>/status/<%= id_str %>" target="_blank"><%= text %></br><%= created_at_formatted %></a>'),
+	template: _.template($('#tweet_template').html()),
 
   render: function(){
 		var modelJSON = this.model.toJSON();

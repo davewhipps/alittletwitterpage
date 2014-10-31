@@ -97,6 +97,16 @@
 
         <script src="js/main.js"></script>
 
+        <!-- This is a pretyt bogus way of templating, but for this small example without a real backend, it'll have to do.
+            It seems a lot cleaner than having a ton of string concatenation -->
+        <script type="text/template" id="tweet_template">
+          <img class="inline" src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded">
+          <div class="inline">
+            <a href="https://twitter.com/<%= user.screen_name %>/status/<%= id_str %>" target="_blank"><%= text %></br>
+              <%= created_at_formatted %></a>
+          </div>
+        </script>
+
         <script src="js/models/tweet.js"></script>
         <script src="js/collections/tweets.js"></script>
         <script src="js/views/tweet.js"></script>
