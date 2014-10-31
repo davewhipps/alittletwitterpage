@@ -1,8 +1,12 @@
 ALittleTwitterApp.Views.Tweets = Backbone.View.extend({
 	tagName: 'ul',
 
-	initialize: function() {
-		this.render();
+	initialize: function()
+	{
+		this.collection.bind('reset', function(collection) {
+			this.$el.empty();
+			this.render();
+		}, this);
 	},
 
   render: function() {

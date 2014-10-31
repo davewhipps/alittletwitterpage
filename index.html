@@ -101,29 +101,10 @@
 
 
         <script type="text/javascript">
-            var testTweets = new ALittleTwitterApp.Collections.Tweets([
-            {
-              text: 'First Tweet'
-            },
-            {
-              text: 'Another Tweet'
-            },
-            {
-              text: 'Another Tweet'
-            },
-            {
-              text: 'Another Tweet'
-            },
-            {
-              text: 'Another Tweet'
-            },
-            {
-              text: 'Last Tweet'
-            }
-          ]);
-
+          var tweets = new ALittleTwitterApp.Collections.Tweets();
           $(".tweetwidget").each(function(index, tweetWidgetDiv) {
-            var tweetWidget = new ALittleTwitterApp.Views.Tweets({ collection: testTweets });
+            tweets.fetch({reset: true});
+            var tweetWidget = new ALittleTwitterApp.Views.Tweets({ collection: tweets });
             $(tweetWidgetDiv).append(tweetWidget.render().el);
           });
         </script>
