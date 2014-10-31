@@ -4,6 +4,27 @@
    Author's custom styles
    ========================================================================== */
 
+.tweetwidget {
+	padding: 0;
+	background-color: #333;
+	border-color: #444;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.tweetwidget ul {
+
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.tweetwidget li {
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid #e8e8e8;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 
 
 

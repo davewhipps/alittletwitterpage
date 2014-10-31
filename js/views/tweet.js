@@ -5,20 +5,11 @@ ALittleTwitterApp.Views.Tweet = Backbone.View.extend({
   render: function(){
 		var modelJSON = this.model.toJSON();
 
-		var jsDate = this.fbStringToDate(modelJSON.created_at);
-		var jsDate2 = this.fbStringToDateString(modelJSON.created_at);
-
-		modelJSON.created_at_formatted = jsDate2;
+		modelJSON.created_at_formatted = this.fbStringToDateString(modelJSON.created_at);
 
 		this.$el.html(this.template(modelJSON));
 		return this;
   },
-
-	fbStringToDate: function (s) {
-		var b = s.split(/[: ]/g);
-		var m = {jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11};
-		return new Date(Date.UTC(b[7], m[b[1].toLowerCase()], b[2], b[3], b[4], b[5]));
-	},
 
 	fbStringToDateString: function (tdate) {
 		var system_date = new Date(Date.parse(tdate));
@@ -40,7 +31,5 @@ ALittleTwitterApp.Views.Tweet = Backbone.View.extend({
     if (diff <= 777600) {return "1 week ago";}
     return system_date.toDateString();
 	}
-
-
 
 });
