@@ -27,6 +27,12 @@
 	display: inline-block;
 }
 
+.loading {
+	display: none;
+	margin-top: 50%;
+	margin-right: auto;
+	margin-left: auto;	
+}
 
 
 

@@ -7,7 +7,8 @@ window.ALittleTwitterApp = {
 	},
 	Views: {
 		Tweet: {},
-		Tweets: {}
+		Tweets: {},
+		TweetWidget: {}
 	},
 
 	Routers: {
