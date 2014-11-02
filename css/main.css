@@ -25,11 +25,26 @@
 
 .tweetwidget .userimg {
 	float: left;
-	margin-right: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
 
-.tweetwidget .inline {
+.tweetwidget .content {
+	color: #a0a0a0;
 	overflow: hidden;
+}
+
+.tweetwidget a {
+	color: rgb(207, 207, 207);
+}
+
+.tweetwidget a:hover {
+	color: #87c2ed;
+  text-decoration: none;
+}
+
+.tweetwidget p {
+	float:right;
 }
 
 .loading {
