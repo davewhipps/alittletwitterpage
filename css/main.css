@@ -23,8 +23,13 @@
 	padding: 12px 10px 12px 10px;
 }
 
+.tweetwidget .userimg {
+	float: left;
+	margin-right: 10px;
+}
+
 .tweetwidget .inline {
-	display: inline-block;
+	overflow: hidden;
 }
 
 .loading {

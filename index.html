@@ -68,7 +68,7 @@
 
       <hr>
 
-      <div class="row">
+      <div class="row hide">
         <div class="col-md-4">
           <a class="twitter-timeline" data-chrome="nofooter noheader" height="400" href="https://twitter.com/AppDirect" data-widget-id="527605312912494592">Tweets by @AppDirect</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -102,10 +102,10 @@
         <!-- This is a pretyt bogus way of templating, but for this small example without a real backend, it'll have to do.
             It seems a lot cleaner than having a ton of string concatenation -->
         <script type="text/template" id="tweet_template">
-          <img class="inline" src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded">
+          <img class="userimg" src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded">
           <div class="inline">
             <a href="https://twitter.com/<%= user.screen_name %>/status/<%= id_str %>" target="_blank"><%= text %></br>
-              <%= created_at_formatted %></a>
+            <%= created_at_formatted %></a>
           </div>
         </script>
 
