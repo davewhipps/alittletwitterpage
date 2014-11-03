@@ -14,15 +14,9 @@ window.ALittleTwitterApp = {
 	Routers: {
 
 	},
-
-	init: function() {
-		//new ALittleTwitterApp.Routers.Home();
-		Backbone.history.start();
-	}
 };
 
 $(function() {
-	ALittleTwitterApp.init();
 	
 	// Try to restore the column order
 	var ns = $.initNamespaceStorage('alittletwitterapp');
