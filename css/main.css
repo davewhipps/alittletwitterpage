@@ -1,0 +1,83 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.tweetwidget {
+	height: 500px;
+	overflow-y: scroll;
+	padding: 0;
+	background-color: #333;
+	border-color: #444;
+	border-radius: 8px 8px 8px 8px;
+}
+
+.resortable {
+	background-color: #444;
+	border-color: #444;
+}
+
+.resortable:hover {
+	background-color: #555;
+	cursor: ew-resize;
+}
+
+.tweetwidget ul {
+	padding-left: 0;
+}
+
+.tweetwidget li {
+	display: block;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 12px 10px 12px 10px;
+}
+
+.tweetwidget .userimg {
+	float: left;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.tweetwidget .content {
+	color: #a0a0a0;
+	overflow: hidden;
+}
+
+.tweetwidget a {
+	color: rgb(207, 207, 207);
+}
+
+.tweetwidget a:hover {
+	color: #87c2ed;
+  text-decoration: none;
+}
+
+.tweetwidget p {
+	float:right;
+}
+
+.loading {
+	display: none;
+	margin-top: 50%;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

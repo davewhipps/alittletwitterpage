@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>A Little Twitter App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">A Little Twitter Page</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    
+
+    <div class="container-fluid">
+
+      <div class="panel panel-default" style="margin-top: 20px">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Edit Layout
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <h4>Drag the panels side to side to re-order them: <span class="glyphicon glyphicon-resize-horizontal"></span></h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row sortable-columns">
+        <div class="col-md-4">
+          <div class="tweetwidget" data-twitter-screen-name="AppDirect">
+            <img  class="loading" src="img/ajax-loader.gif" alt="Loading Tweets">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tweetwidget" data-twitter-screen-name="laughingsquid">
+            <img  class="loading" src="img/ajax-loader.gif" alt="Loading Tweets">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tweetwidget" data-twitter-screen-name="techcrunch">
+            <img  class="loading" src="img/ajax-loader.gif" alt="Loading Tweets">
+          </div>
+        </div>
+      </div>
+
+    </br>
+      <footer>
+        <address>
+          <p>&copy; <a href="mailto:dwhipps@me.com">Dave Whipps</a> 2014</p>
+        </address>
+      </footer>
+    </div> <!-- /container -->        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script src="js/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/libs/jquery-storage/jquery.storageapi.min.js"></script>
+        <script src="js/libs/bootstrap/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/libs/underscore/underscore.js"></script>
+        <script src="js/libs/backbone/backbone.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- This is a pretyt bogus way of templating, but for this small example without a real backend, it'll have to do.
+            It seems a lot cleaner than having a ton of string concatenation -->
+        <script type="text/template" id="tweet_template">
+          <img class="userimg" src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded">
+          <div class="content">
+            <p><%= created_at_formatted %></p>
+            <a href="https://twitter.com/<%= user.screen_name %>" target="_blank">@<%= user.screen_name %></a></br>
+            <a href="https://twitter.com/<%= user.screen_name %>/status/<%= id_str %>" target="_blank"><%= text %></a>
+            <% if (typeof(retweeted_status) !== 'undefined') { %>
+              </br>
+              <a href="https://twitter.com/<%= retweeted_status.user.screen_name %>">RT: @<%= retweeted_status.user.screen_name %></a>
+            <% } %>
+          </div>
+        </script>
+
+        <script src="js/models/tweet.js"></script>
+        <script src="js/collections/tweets.js"></script>
+        <script src="js/views/tweet.js"></script>
+        <script src="js/views/tweets.js"></script>
+        <script src="js/views/tweetwidget.js"></script>
+
+    </body>
+</html>
