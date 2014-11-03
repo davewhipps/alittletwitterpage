@@ -8,7 +8,7 @@ ALittleTwitterApp.Collections.Tweets = Backbone.Collection.extend({
   },
 
   url: function() {
-		return 'twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?count=30&screen_name='+this.twitter_screen_name);
+		return 'twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?count=30&include_rts=1&screen_name='+this.twitter_screen_name);
   },
   
   parse: function(response) {

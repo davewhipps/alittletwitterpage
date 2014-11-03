@@ -40,15 +40,27 @@
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <p>There are at least two ways to add a Twitter Timeline to a webpage: Some snazzy backbone.js, or embed using their Widget</p>
-      </div>
-    </div>
+    
 
     <div class="container-fluid">
+
+      <div class="panel panel-default" style="margin-top: 20px">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Options
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            <h4>Drag the panels side to side to re-order them: <span class="glyphicon glyphicon-resize-horizontal"></span></h4>
+          </div>
+        </div>
+      </div>
+
       <!-- Example row of columns -->
-      <div class="row">
+      <div class="row sortable-columns">
         <div class="col-md-4">
           <div class="tweetwidget" data-twitter-screen-name="AppDirect">
             <img  class="loading" src="img/ajax-loader.gif" alt="Loading Tweets">
@@ -66,24 +78,7 @@
         </div>
       </div>
 
-      <hr>
-
-      <div class="row">
-        <div class="col-md-4">
-          <a class="twitter-timeline" data-chrome="nofooter noheader" height="400" href="https://twitter.com/AppDirect" data-widget-id="527605312912494592">Tweets by @AppDirect</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
-        <div class="col-md-4">
-          <a class="twitter-timeline"  data-chrome="nofooter noheader" height="400" href="https://twitter.com/LaughingSquid" data-widget-id="527606462801928192">Tweets by @LaughingSquid</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-       </div>
-        <div class="col-md-4">
-          <a class="twitter-timeline" data-chrome="nofooter noheader" height="400" href="https://twitter.com/TechCrunch" data-widget-id="527607670010695680">Tweets by @TechCrunch</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
-        <hr>
-      </div>
-
+    </br>
       <footer>
         <address>
           <p>&copy; <a href="mailto:dwhipps@me.com">Dave Whipps</a> 2014</p>
@@ -92,6 +87,8 @@
     </div> <!-- /container -->        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+        <script src="js/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="js/libs/jquery-storage/jquery.storageapi.min.js"></script>
         <script src="js/libs/bootstrap/bootstrap.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/libs/underscore/underscore.js"></script>
@@ -104,8 +101,13 @@
         <script type="text/template" id="tweet_template">
           <img class="userimg" src="<%= user.profile_image_url_https %>" alt="user_image" class="img-rounded">
           <div class="content">
-            <p style="float:right"><%= created_at_formatted %></p>
+            <p><%= created_at_formatted %></p>
+            <a href="https://twitter.com/<%= user.screen_name %>" target="_blank">@<%= user.screen_name %></a></br>
             <a href="https://twitter.com/<%= user.screen_name %>/status/<%= id_str %>" target="_blank"><%= text %></a>
+            <% if (typeof(retweeted_status) !== 'undefined') { %>
+              </br>
+              <a href="https://twitter.com/<%= retweeted_status.user.screen_name %>">RT: @<%= retweeted_status.user.screen_name %></a>
+            <% } %>
           </div>
         </script>
 
